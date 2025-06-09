@@ -1,6 +1,7 @@
 import React, { type FC } from 'react';
 import type { Movie } from '../../types/types';
 import { useMovieContext } from '../../context/MovieContext';
+import '../../style/MovieCard.css'
 
 interface MovieCardProps {
   movie: Movie;

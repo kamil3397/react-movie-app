@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import { useMovieContext } from '../../context/MovieContext';
-import '../../style/Favorites.css';
 import { MovieModal } from '../../components/MovieModal/MovieModal';
+import '../../style/Favorites.css'
 
 const FavoritesPage = () => {
   const { favorites, toggleFavorite, setSelectedMovie } = useMovieContext();

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { Movie } from '../../types/types';
-import '../../style/Home.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useMovieContext } from '../../context/MovieContext';
 import MovieCard from '../../components/MovieCard/MovieCard';
+import '../../style/Home.css'
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
