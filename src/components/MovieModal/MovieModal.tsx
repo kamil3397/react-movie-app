@@ -43,10 +43,10 @@ export const MovieModal = () => {
 
           <div className="modal-info">
             <h2 id="modal-title">{selectedMovie.title}</h2>
-            <p><strong>Tytuł org.:</strong> {selectedMovie.original_title}</p>
-            <p><strong>Język:</strong> {selectedMovie.original_language?.toUpperCase()}</p>
-            <p><strong>Data premiery:</strong> {selectedMovie.release_date}</p>
-            <p><strong>Ocena:</strong> {selectedMovie.vote_average} / 10</p>
+            <p><strong>Orginal title:</strong> {selectedMovie.original_title}</p>
+            <p><strong>Language:</strong> {selectedMovie.original_language?.toUpperCase()}</p>
+            <p><strong>Premiere date:</strong> {selectedMovie.release_date}</p>
+            <p><strong>Rate:</strong> {selectedMovie.vote_average} / 10</p>
             <p className="overview">{selectedMovie.overview}</p>
 
             <div className="modal-actions">
