@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import '../../style/Navbar.css';
 
 export const Navbar = () => {
@@ -7,7 +7,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const term = search.trim();
     if (term) {
