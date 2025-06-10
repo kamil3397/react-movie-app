@@ -8,5 +8,5 @@ export interface Movie {
   original_title?: string;
   original_language?: string;
   runtime?: number;
-  genres?: { id: number; name: string }[];
+  genres?: { id: number; name: string }[]; // to moznaby wyrzucic do oddzielnego typu jak jest obiektem
 }

@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import { describe, test, expect, vi } from 'vitest';
-import MovieCard from './MovieCard';
-import type { Movie } from '../../types/types';
+import { render, screen } from "@testing-library/react";
+import { describe, test, expect, vi } from "vitest";
+import MovieCard from "./MovieCard";
+import type { Movie } from "../../types/types";
 
-vi.mock('../../context/MovieContext', () => ({
+vi.mock("../../context/MovieContext", () => ({
   useMovieContext: () => ({
     favorites: [],
     toggleFavorite: () => {},
@@ -12,19 +12,21 @@ vi.mock('../../context/MovieContext', () => ({
 
 const movie: Movie = {
   id: 1,
-  title: 'Interstellar',
-  overview: 'A sci-fi movie about space travel.',
-  poster_path: '/interstellar.jpg',
+  title: "Interstellar",
+  overview: "A sci-fi movie about space travel.",
+  poster_path: "/interstellar.jpg",
 };
 
-describe('MovieCard', () => {
-  test('renders movie title', async () => {
+describe("MovieCard", () => {
+  test("renders movie title", async () => {
     render(<MovieCard movie={movie} />);
-    expect(await screen.findByText('Interstellar')).toBeInTheDocument();
+    expect(await screen.findByText("Interstellar")).toBeInTheDocument();
   });
 
   test('renders "No Image" if no poster', async () => {
-    render(<MovieCard movie={{ ...movie, poster_path: '' }} />);
-    expect(await screen.findByText('No Image')).toBeInTheDocument();
+    render(<MovieCard movie={{ ...movie, poster_path: "" }} />);
+    expect(await screen.findByText("No Image")).toBeInTheDocument();
   });
 });
+
+//za malo testow, brakuje sprawdzenie conditions, wywolywania funkcji

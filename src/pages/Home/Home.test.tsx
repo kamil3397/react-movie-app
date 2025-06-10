@@ -1,11 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import { describe, test, expect } from 'vitest';
-import { MemoryRouter } from 'react-router-dom';
-import { MovieProvider } from '../../context/MovieContext';
-import Home from './Home';
+import { render, screen } from "@testing-library/react";
+import { describe, test, expect } from "vitest";
+import { MemoryRouter } from "react-router-dom";
+import { MovieProvider } from "../../context/MovieContext";
+import Home from "./Home";
 
-describe('Home', () => {
-  test('shows loading initially', () => {
+// chyba nie jest to skonczony test
+
+describe("Home", () => {
+  test("shows loading initially", () => {
     render(
       <MemoryRouter>
         <MovieProvider>

@@ -1,18 +1,21 @@
-import { useState } from 'react';
-import MovieCard from '../../components/MovieCard/MovieCard';
-import { useMovieContext } from '../../context/MovieContext';
-import { MovieModal } from '../../components/MovieModal/MovieModal';
-import '../../style/Favorites.css'
+import { useState } from "react";
+import MovieCard from "../../components/MovieCard/MovieCard";
+import { useMovieContext } from "../../context/MovieContext";
+import { MovieModal } from "../../components/MovieModal/MovieModal";
+import "../../style/Favorites.css";
 
 const FavoritesPage = () => {
   const { favorites, toggleFavorite, setSelectedMovie } = useMovieContext();
 
-  const itemsPerPage = 8;
+  const itemsPerPage = 8; //czemu 8? jesli to jest cos sztywnego to powinno byc poza componentem i napisane screaming snake casem
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(favorites.length / itemsPerPage);
+  const totalPages = Math.ceil(favorites.length / itemsPerPage); // po co math.ceil?
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedFavorites = favorites.slice(startIndex, startIndex + itemsPerPage);
+  const paginatedFavorites = favorites.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   if (favorites.length === 0) {
     return <p className="no-favorites">No favorite movies.</p>;
@@ -22,7 +25,7 @@ const FavoritesPage = () => {
     <div className="favorites-container">
       <h2>⭐ Favorite Movies</h2>
       <div className="favorites-grid">
-        {paginatedFavorites.map(movie => (
+        {paginatedFavorites.map((movie) => (
           <MovieCard
             key={movie.id}
             movie={movie}
@@ -32,26 +35,26 @@ const FavoritesPage = () => {
           />
         ))}
       </div>
-
       {totalPages > 1 && (
         <div className="pagination">
           <button
-            onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
+            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
             disabled={currentPage === 1}
           >
             ◀ Previous
           </button>
-          <span>Page {currentPage} of {totalPages}</span>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
           <button
-            onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
+            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
             disabled={currentPage === totalPages}
           >
             Next ▶
           </button>
         </div>
       )}
-
-      <MovieModal />
+      <MovieModal /> {/* po co tu MovieModal skoro jest tez w main? */}
     </div>
   );
 };
